@@ -290,7 +290,7 @@ public class LinkedList {
     // mergeSort O(nlogn)
     public Node mergeSort(Node head) {
         if (head == null || head.next == null) {
-            return head;
+            return head; 
         }
         // find mid
         Node mid = getMid(head);
@@ -310,7 +310,7 @@ public class LinkedList {
         Node fast = head;
         while (fast != null && fast.next != null) {
             slow = slow.next;
-            fast = fast.next;
+            fast = fast.next.next;
         }
         Node mid = slow;
         // reverse 2nd half

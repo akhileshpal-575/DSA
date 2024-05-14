@@ -4,7 +4,7 @@
 public class DiagonalSum {
     public static int diagonalSum(int a[][]){
         int sum = 0;
-//O(n) time complexity , best case ,O(n2) for worst case.
+//O(n) time complexity-best case ,O(n2) for worst case.
         for (int i = 0; i < a.length; i++) {
        //primary diagonal.
             sum += a[i][i];
