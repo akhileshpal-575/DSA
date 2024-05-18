@@ -6,7 +6,7 @@ public class CircularQueue {
       static int front;
       Queue(int n){
         arr = new int[n];
-        size = n;
+        size = n; 
         rear = -1;
         front = -1;
           }
