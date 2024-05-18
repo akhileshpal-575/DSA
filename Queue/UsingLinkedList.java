@@ -22,6 +22,7 @@ public class UsingLinkedList {
       Node newNode = new Node(data);
       if (head == null) {
         head = tail = newNode;
+        return;
       }
       tail.next = newNode;
       tail = newNode;
