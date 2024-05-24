@@ -82,6 +82,46 @@ public class BinaryTreesTraversal{
                 }
              }
         }
+        // kth level of tree using level order approach
+        // O(N)
+        public static void kthLevelTree(Node root,int k){
+            if(root == null&&k<1){
+                return;
+            }
+            Queue<Node> q = new LinkedList<>();
+             q.add(root);
+             int level = 1;
+             while(!q.isEmpty()){
+                int size = q.size();
+                  for(int i = 0; i<size; i++){
+                    Node currentNode = q.remove();
+                    if(level == k){
+                    System.out.print(currentNode.data+" ");
+                    }
+                    if(currentNode.left!=null){
+                        q.add(currentNode.left);
+                    }
+                    if(currentNode.right!=null){
+                        q.add(currentNode.right);
+                    }
+                }
+                level++;
+                if(level>k){
+                    break;
+                }
+             }
+        }
+        // kth level of tree recursive approach best O(n) O(1)
+        public static void kthLevelOfTree(Node root, int level , int k){
+            if(root == null){
+                return ;
+            }
+            if(level == k){
+                System.out.print(root.data + " ");
+            }
+            kthLevelOfTree(root.left, level+1, k);
+            kthLevelOfTree(root.right, level+1, k);
+        }
     }
     public static void main(String[] args) {
         int nodes[] = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
@@ -107,5 +147,14 @@ public class BinaryTreesTraversal{
         
         System.out.println("level order traversal ");
         tree.levelorderTraversal(root);
+    
+        System.out.println();
+        System.out.println("Kthlevel tree using level order traversal ");
+        tree.kthLevelTree(root,3);
+    
+        System.out.println();
+        System.out.println("Kthlevel of tree recursive approach ");
+        tree.kthLevelOfTree(root,1,3);
+    
     }
 }
