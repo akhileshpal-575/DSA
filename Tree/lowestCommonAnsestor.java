@@ -86,6 +86,26 @@ public class lowestCommonAnsestor {
 
         System.out.println("min distance is :"+ (dist1+dist2));
     } 
+    // Kth ancestor of node
+    public static int kthAncestor(Node root, int n, int k){
+        if(root == null){
+            return -1;
+        }
+        if(root.data == n){
+            return 0;
+        }
+        int leftdist = kthAncestor(root.left, n, k);
+        int rightdist = kthAncestor(root.right, n, k);
+
+        if(leftdist == -1 && rightdist == -1){
+            return -1;
+        }
+        int max = Math.max(leftdist,rightdist);
+        if(max+1 == k){
+            System.out.println("kth Ancestor is "+ root.data);
+        }
+        return max+1;
+    }
 public static void main(String[] args) {
     /*         1
               / \
@@ -105,6 +125,7 @@ public static void main(String[] args) {
         System.out.println(" lca : "+ lca2(root,4,6).data);
 
         minDistance(root, 4, 6);
+        kthAncestor(root, 5, 1);
     }
 
 }
