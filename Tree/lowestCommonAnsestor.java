@@ -61,6 +61,31 @@ public class lowestCommonAnsestor {
         }
         return root;
     }
+    public static int dist(Node root , int n){
+        if(root == null){
+            return -1;
+        }
+        if(root.data == n){
+            return 0;
+        }
+        int left = dist(root.left, n);
+        int right = dist(root.right,n);
+
+        if(left == -1 && right == -1){
+            return -1;
+        }else if(left == -1){
+            return right+1;
+        }else{
+            return left+1;
+        }
+    }
+    public static void minDistance(Node root ,int n1,int n2){
+        Node lca = lca2(root, n1, n2);
+        int dist1 = dist(lca,n1);
+        int dist2 = dist(lca,n2);
+
+        System.out.println("min distance is :"+ (dist1+dist2));
+    } 
 public static void main(String[] args) {
     /*         1
               / \
@@ -78,6 +103,8 @@ public static void main(String[] args) {
 
         lca(root, 4, 6);
         System.out.println(" lca : "+ lca2(root,4,6).data);
+
+        minDistance(root, 4, 6);
     }
 
 }
