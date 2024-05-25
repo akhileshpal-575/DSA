@@ -61,6 +61,7 @@ public class lowestCommonAnsestor {
         }
         return root;
     }
+    // min distace between nodes
     public static int dist(Node root , int n){
         if(root == null){
             return -1;
@@ -106,11 +107,37 @@ public class lowestCommonAnsestor {
         }
         return max+1;
     }
+    // transform to sum tree
+    public static int transformSumTree(Node root){
+        if(root == null){
+            return 0;
+        }
+        int leftchild = transformSumTree(root.left);
+        int rightchild = transformSumTree(root.right);
+
+        int data = root.data;
+
+        int newleft = root.left == null ? 0 : root.left.data;
+        int newright = root.right == null? 0 : root.right.data;
+
+        root.data = newleft + leftchild +newright + rightchild;
+
+        return data;
+    }
+    // new transform tree 
+    public static void preorder(Node root){
+        if(root == null){
+            return ;
+        }
+        System.out.print(root.data + " ");
+        preorder(root.left);
+        preorder(root.right);
+    }
 public static void main(String[] args) {
     /*         1
               / \
              2   3
-            / \    \
+            / \   \
            4   5    6 
      
      */
@@ -119,13 +146,18 @@ public static void main(String[] args) {
            root.right = new Node(3);
            root.left.left = new Node(4);
            root.left.right = new Node(5);
-           root.right.right = new Node(6);
+           root.right.left = new Node(6);
+           root.right.right = new Node(7);
 
         lca(root, 4, 6);
         System.out.println(" lca : "+ lca2(root,4,6).data);
 
         minDistance(root, 4, 6);
         kthAncestor(root, 5, 1);
+        System.out.println();
+        
+        transformSumTree(root);
+        preorder(root);
     }
 
 }
