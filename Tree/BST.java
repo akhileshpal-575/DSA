@@ -123,6 +123,19 @@ public class BST {
             }
             return validateBST(root.left,min,root)&&validateBST(root.right,root,max);
         }
+
+        // Mirror a BST
+        public static Node mirrorBst(Node root){
+            if(root == null){
+                return null;
+            }
+           Node leftsub = mirrorBst(root.left);
+           Node rightsub = mirrorBst(root.right);
+
+            root.left = rightsub;
+            root.right = leftsub;
+            return root;
+        }
     
     public static void main(String[] args) {
         int values [] = {8,5,3,1,4,6,10,11,14};
@@ -148,11 +161,12 @@ public class BST {
         // ArrayList<Integer>path = new ArrayList<>();
         // rootToLeaf(root,path);
 
-        if(validateBST(root,null,null)){
-            System.out.println("true");
-        }else{
-            System.out.println("false");
-        }
+        // if(validateBST(root,null,null)){
+        //     System.out.println("true");
+        // }else{
+        //     System.out.println("false");
+        // }
+
     }
 }
 
