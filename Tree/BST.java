@@ -143,29 +143,30 @@ public class BST {
         for(int i = 0; i<values.length; i++){
             root = insert(root,values[i]);
         }
-        // System.out.println();
-        // inorder(root); //give a sorted sequence for BST.
+        System.out.println();
+        inorder(root); //give a sorted sequence for BST.
 
-        // System.out.println();
-        // if(search(root, 2)){
-        //     System.out.println("found");
-        // }
-        // else{
-        //     System.out.println("Not found");
-        // }
-        // root = delete(root,3);
-        // System.out.println();
-        // inorder(root);
-        // printInRange(root, 10, 20);
+        System.out.println();
+        if(search(root, 2)){
+            System.out.println("found");
+        }
+        else{
+            System.out.println("Not found");
+        }
+        
+        root = delete(root,3);
+        System.out.println();
+        inorder(root);
+        printInRange(root, 10, 20);
 
-        // ArrayList<Integer>path = new ArrayList<>();
-        // rootToLeaf(root,path);
+        ArrayList<Integer>path = new ArrayList<>();
+        rootToLeaf(root,path);
 
-        // if(validateBST(root,null,null)){
-        //     System.out.println("true");
-        // }else{
-        //     System.out.println("false");
-        // }
+        if(validateBST(root,null,null)){
+            System.out.println("true");
+        }else{
+            System.out.println("false");
+        }
 
     }
 }
