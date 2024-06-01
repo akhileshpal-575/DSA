@@ -28,7 +28,7 @@ public class NearByCars {
         }
 
         for(int i= 0 ; i<k; i++){
-            System.out.println("C"+pq.remove().idx);
+            System.out.println("Car C"+pq.remove().idx);
         }
 
     }
