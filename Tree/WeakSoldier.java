@@ -26,10 +26,10 @@ public class WeakSoldier {
        for(int i = 0; i<army.length; i++){
         int count = 0;
         for(int j = 0; j<army[0].length; j++){
-            if(army[i][j] == 0){
-                break;
+            if(army[i][j] == 1){
+                count++;
             }
-            count++;
+            
         }
         pq.add(new Row(count, i));
        }
