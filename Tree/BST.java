@@ -1,4 +1,3 @@
-import java.util.*;
 import java.util.ArrayList;
 public class BST {
     static class Node{
@@ -107,7 +106,7 @@ public class BST {
                 printPath(path);
             }
             rootToLeaf(root.left,path);
-            rootToLeaf(root.right, path);
+            rootToLeaf(root.right, path); 
             path.remove(path.size()-1);
         }
         // validate BST
