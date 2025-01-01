@@ -67,7 +67,7 @@ public static boolean cycleDetectUtil(ArrayList<Edge>[]graph,int curr,int par,bo
             }
         }
         // case 1
-        else if(visit[e.dest]&&curr!=par){
+        else if(visit[e.dest]&&e.dest!=par){
             return true;
         }
         // case 2 do nothing
